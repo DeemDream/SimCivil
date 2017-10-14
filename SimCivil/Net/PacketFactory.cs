@@ -65,10 +65,11 @@ namespace SimCivil.Net
                 var packetAttrs = t.GetTypeInfo().GetCustomAttributes<PacketTypeAttribute>();
                 foreach (var attr in packetAttrs)
                 {
+                    // Confusing names...
                     var key = attr.PacketType;
                     LegalPackets[key] = t;
                     PacketAttributes[key] = attr;
-                    PacketsType[t] = key;
+                    PacketsType[t] = key; // One key(t) with multi-value(key)
                 }
             }
         }
